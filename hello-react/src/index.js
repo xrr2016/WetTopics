@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import LikeButton from './components/LikeButton'
+import List from './components/List'
 // import App from './App'
 import './index.css'
 
@@ -43,6 +44,7 @@ class Index extends Component {
       <Header />
       <Main />
       <LikeButton handleComponentClick={() => console.log('Click on LikeButton')} />
+      <List />
       <Footer />
     </div>
   )
