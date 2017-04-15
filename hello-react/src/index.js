@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import LikeButton from './components/LikeButton'
 // import App from './App'
 import './index.css'
 
 class Title extends Component {
+  handleClick = (event) => {
+    console.log(this)
+    alert(event.target.innerHTML)
+  }
   render = () => (
-    <h1>React Book!</h1>
+    <h1 onClick={this.handleClick}>React Book!</h1>
   )
 }
 
@@ -37,6 +42,7 @@ class Index extends Component {
     <div>
       <Header />
       <Main />
+      <LikeButton />
       <Footer />
     </div>
   )
