@@ -42,7 +42,7 @@ class Index extends Component {
     <div>
       <Header />
       <Main />
-      <LikeButton />
+      <LikeButton handleComponentClick={() => console.log('Click on LikeButton')} />
       <Footer />
     </div>
   )
