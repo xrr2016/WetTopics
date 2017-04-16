@@ -8,9 +8,8 @@ class CommentApp extends Component {
     comments: []
   }
   handleNewComment = (comment) => {
-    const comments = this.state.comments 
-    comments.push(comment)
-    this.setState({comments})
+    const updatedComments = this.state.comments.concat(comment)
+    this.setState({comments: updatedComments})
   }
   render() {
     return (
