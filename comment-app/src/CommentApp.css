@@ -65,11 +65,13 @@
 .comment-field-button button:active {
   background: #13c1f1;
 }
-
+.comment-label {
+  padding-right: 14px;
+}
 /* 评论列表样式 */
 .comment-list {
   background-color: #fff;
-  border: 1px solid #f1f1f1;
+  /*border: 1px solid #f1f1f1;*/
   padding: 20px;
 }
 
@@ -90,6 +92,7 @@
 .comment-username {
   color: #00a3cf;
   font-style: italic;
+  padding-right: 14px;
 }
 
 .comment-createdtime {

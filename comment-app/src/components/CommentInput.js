@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class CommentInput extends Component {
+  static propTypes = {
+    handleNewComment: PropTypes.func
+  }
+
   state = {
     username: '',
     content: ''
@@ -8,6 +13,18 @@ class CommentInput extends Component {
   handleUserNameChange = (event) => {
     const username = event.target.value
     this.setState({username})
+  }
+  handleUserNameBlur = (event) => {
+    this._saveUsername(event.target.value)
+  }
+  _saveUsername(username) {
+    localStorage.setItem('username', username)
+  }
+  _loadUsername() {
+    const username = localStorage.getItem('username')
+    if (username) {
+      this.setState({username})
+    }
   }
   handleContentChange = (event) => {
     const content = event.target.value
@@ -22,6 +39,9 @@ class CommentInput extends Component {
     this.props.handleNewComment({username, content})
     this.setState({content: ''})
   }
+  componentWillMount() {
+    this._loadUsername()
+  }
   componentDidMount() {
     // this.textarea.focus()
   }
@@ -33,6 +53,7 @@ class CommentInput extends Component {
           <input className="comment-field-name" 
           value={this.state.username}
           onChange={this.handleUserNameChange}
+          onBlur={this.handleUserNameBlur}
           id="username"/>
         </div>
         <div className="comment-field">

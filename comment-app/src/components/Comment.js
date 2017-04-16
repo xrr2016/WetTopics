@@ -2,7 +2,7 @@ import React from 'react'
 
 const Comment = (props) => (
   <li className="comment">
-    <span className="comment-user">{props.username}:</span>
+    <span className="comment-username">{props.username}:</span>
     {props.content}
   </li>
 )

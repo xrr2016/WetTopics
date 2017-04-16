@@ -7,9 +7,27 @@ class CommentApp extends Component {
   state = {
     comments: []
   }
+  componentWillMount() {
+    this._loadComments()
+  }
+  _loadComments() {
+    const comments = localStorage.getItem('comments')
+    if (comments) {
+      this.setState({
+        comments: JSON.parse(comments)
+      })
+    }
+  }
+  _saveComments(comments) {
+    localStorage.setItem('comments', JSON.stringify(comments))
+  }
   handleNewComment = (comment) => {
+    if (!comment) return
+    if (!comment.username) return alert('请输入用户名')
+    if (!comment.content) return alert('请输入评论内容')
     const updatedComments = this.state.comments.concat(comment)
     this.setState({comments: updatedComments})
+    this._saveComments(updatedComments)
   }
   render() {
     return (
