@@ -22,6 +22,9 @@ class CommentInput extends Component {
     this.props.handleNewComment({username, content})
     this.setState({content: ''})
   }
+  componentDidMount() {
+    // this.textarea.focus()
+  }
   render () {
     return (
       <form className="comment-field-input">
@@ -34,10 +37,10 @@ class CommentInput extends Component {
         </div>
         <div className="comment-field">
           <label className="comment-label" htmlFor="content">评论 :</label>
-          <textarea className="comment-field-input"
+          <textarea ref={textarea => this.textarea = textarea} className="comment-field-input"
           onChange={this.handleContentChange}
           value={this.state.content}
-          id="content"></textarea>
+          id="content" autoFocus></textarea>
         </div>
         <div className="comment-field-button">
           <button className="coment-submit" type="submit" onClick={this.handleSubmit}>发布</button>

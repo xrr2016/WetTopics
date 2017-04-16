@@ -19,5 +19,8 @@
   "homepage": "https://github.com/xrr2016/react-book-learn#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
   }
 }

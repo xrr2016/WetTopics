@@ -3,7 +3,7 @@
   margin: 10px auto;
   font-size: 14px;
   background-color: #fff;
-  /*border: 1px solid #f1f1f1;*/
+  border: 1px solid #f1f1f1;
   padding: 20px;
 }
 
@@ -66,33 +66,61 @@
   background: #13c1f1;
 }
 
-.comment-label {
-  width: 70px;
-  padding-right: 12px;
-}
-
 /* 评论列表样式 */
 .comment-list {
   background-color: #fff;
-  /*border: 1px solid #f1f1f1;*/
-  list-style: none;
+  border: 1px solid #f1f1f1;
   padding: 20px;
-  padding-top: 0px;
 }
 
 /* 评论组件样式 */
 .comment {
-  /*border-bottom: 1px solid #f1f1f1;*/
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #f1f1f1;
   margin-bottom: 10px;
   padding-bottom: 10px;
   min-height: 50px;
-  line-height: 1.6;
-  font-size: 16px;
 }
 
 .comment .comment-user {
-  padding-right: 12px;
-  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.comment-username {
   color: #00a3cf;
   font-style: italic;
+}
+
+.comment-createdtime {
+  padding-right: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.comment:hover .comment-delete {
+  color: #00a3cf;
+}
+
+.comment-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.comment p {
+  margin: 0;
+  /*text-indent: 2em;*/
+}
+
+code {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: 0px 2px;
 }
