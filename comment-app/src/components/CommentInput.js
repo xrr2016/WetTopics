@@ -36,7 +36,11 @@ class CommentInput extends Component {
     if (username.length <= 0 || content.length <= 0) {
       return
     }
-    this.props.handleNewComment({username, content})
+    this.props.handleNewComment({
+      username: username,
+      content: content,
+      createAt: +Date.now()
+    })
     this.setState({content: ''})
   }
   componentWillMount() {
