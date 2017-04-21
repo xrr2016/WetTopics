@@ -1,22 +1,22 @@
 import { createStore } from 'redux'
+import todoApp from './reducer'
+import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilterd } from './actions'
+let store = createStore(
+  todoApp,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+) 
 
-function counter(state = 0, action) {
-  switch(action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:    
-      return state
-  }
-}
+console.log(store.getState())
 
-let store = createStore(counter)
-
-store.subscribe(() => {
+let unsubscribe = store.subscribe(() => {
   console.log(store.getState())
 })
 
-store.dispatch({ type: 'INCREMENT'})
-store.dispatch({ type: 'INCREMENT'})
-store.dispatch({ type: 'DECREMENT'})
+store.dispatch(addTodo('Learn about actions'))
+store.dispatch(addTodo('Learn about reducers'))
+store.dispatch(addTodo('Learn about store'))
+store.dispatch(toggleTodo(0))
+store.dispatch(toggleTodo(1))
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
+
+unsubscribe()
