@@ -5,7 +5,10 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import todoApp from './redux/reducer'
 
-let store = createStore(todoApp)
+const store = createStore(
+  todoApp,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 
 render(
   <Provider store={store}>
